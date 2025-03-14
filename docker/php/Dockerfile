@@ -26,6 +26,7 @@ COPY composer.json composer.lock ./
 
 
 COPY . /var/www/html/Todo/
+
 COPY .env.example .env
 RUN chmod 777 .env
 
