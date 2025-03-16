@@ -1,0 +1,29 @@
+- name: To deploy the laravel app
+  hosts: 127.0.0.1
+  tasks:
+  - name: to stop existing image
+    ansible.builtin.command:
+      command: docker stop php_app
+      ignore_errors: true
+
+  - name: to delete php container
+    ansible.builtin.command:
+      command: docker rm php_app
+      ignore_errors: true
+
+  - name: to delete php image
+    ansible.builtin.command:
+      command: docker rmi php_app
+      ignore_errors: true
+
+  - name: to build image of php
+    ansible.builtin.command:
+      command: docker-compose up --build -d
+      ignore_errors: true
+
+  - name: to build image of php
+    ansible.builtin.command:
+      command: docker-compose logs || true
+      ignore_errors: true
+
+

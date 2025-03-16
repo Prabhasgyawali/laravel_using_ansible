@@ -31,8 +31,6 @@ networks:
   bridge:
     driver: bridge
 
-volumes:
-  app_socket:  # Define shared volume for the socket
 
 
 
