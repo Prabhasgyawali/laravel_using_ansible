@@ -31,6 +31,7 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
 
 
 # Install Composer
+RUN chmod +x /usr/local/bin/composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Copy only necessary files first to leverage caching
