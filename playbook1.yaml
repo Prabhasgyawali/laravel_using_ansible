@@ -3,30 +3,24 @@
   connection: local
   tasks:
   - name: to stop existing image
-    ansible.builtin.command:
-      command: docker stop php_app
+    command: docker stop php_app
     ignore_errors: yes
 
   - name: to delete php container
-    ansible.builtin.command:
-      command: docker rm php_app
+    command: docker rm php_app
     ignore_errors: yes
 
   - name: to delete php image
-    ansible.builtin.command:
-      command: docker rmi php_app
+    command: docker rmi php_app
     ignore_errors: yes
 
   - name: to download nginx image
-    ansible.builtin.command:
-      command: docker pull nginx
+    command: docker pull nginx
     ignore_errors: yes
 
   - name: to build image of php
-    ansible.builtin.command:
-      command: docker build -t php_app
+    command: docker build -t php_app
     ignore_errors: yes
 
   - name: to build a container
-    ansible.builtin.command:
-      command: docker run -d --name php_app -p 8000:80 php_app 
+    command: docker run -d --name php_app -p 8000:80 php_app 
