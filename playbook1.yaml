@@ -21,6 +21,8 @@
   - name: to build image of php
     command: docker build -t php_app
     ignore_errors: yes
+    args:
+      chdir: ./Dockerfile
 
   - name: to build a container
     command: docker run -d --name php_app -p 8000:80 php_app 
