@@ -7,23 +7,19 @@
       ignore_errors: true
 
   - name: to delete php container
-    ansible.builtin.command:
-      command: docker rm php_app
-      ignore_errors: true
+    command: docker rm php_app
+    ignore_errors: true
 
   - name: to delete php image
-    ansible.builtin.command:
-      command: docker rmi php_app
-      ignore_errors: true
+    command: docker rmi php_app
+    ignore_errors: true
 
   - name: to build image of php
-    ansible.builtin.command:
-      command: docker-compose up --build -d
-      ignore_errors: true
+    command: docker-compose up --build -d
+    ignore_errors: true
 
   - name: to build image of php
-    ansible.builtin.command:
-      command: docker-compose logs || true
-      ignore_errors: true
+    command: docker-compose logs || true
+    ignore_errors: true
 
 
