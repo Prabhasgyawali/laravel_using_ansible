@@ -1,8 +1,8 @@
 - name: To deploy the laravel app
-  hosts: 127.0.0.1
+  hosts: 172.16.20.220
   tasks:
   - name: to stop existing image
-    command: docker stop php_app
+    command: docker stop laravel_app
     ignore_errors: true
 
   - name: to delete php container
