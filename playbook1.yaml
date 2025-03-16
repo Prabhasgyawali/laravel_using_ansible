@@ -2,9 +2,8 @@
   hosts: 127.0.0.1
   tasks:
   - name: to stop existing image
-    ansible.builtin.command:
-      command: docker stop php_app
-      ignore_errors: true
+    command: docker stop php_app
+    ignore_errors: true
 
   - name: to delete php container
     command: docker rm php_app
