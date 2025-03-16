@@ -14,6 +14,8 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
 # Set correct permissions
 RUN chmod -R 755 /var/www/html
 
+RUN composer install
+
 # Expose ports for HTTP and HTTPS
 EXPOSE 80 443
 
