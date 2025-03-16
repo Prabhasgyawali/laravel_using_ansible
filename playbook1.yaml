@@ -1,5 +1,6 @@
 - name: To deploy the laravel app
   hosts: localhosts
+  connection: local
   tasks:
   - name: to stop existing image
     ansible.builtin.command:
