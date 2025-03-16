@@ -19,7 +19,7 @@
     ignore_errors: yes
 
   - name: to build image of php
-    command: docker build -t php_app
+    command: docker build -t php_app .
     ignore_errors: yes
     args:
       chdir: ./docker
