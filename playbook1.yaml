@@ -15,10 +15,8 @@
 
   - name: to build image of php
     command: docker-compose up --build -d
-    ignore_errors: true
 
   - name: to build image of php
-    command: docker-compose logs || true
-    ignore_errors: true
+    shell: docker-compose logs || true
 
 
