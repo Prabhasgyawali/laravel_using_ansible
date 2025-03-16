@@ -8,7 +8,10 @@ pipeline {
         }
 
         stage('Run Ansible') {
-            sh 'ansible-playbook ansibleplaybook1.yaml'
+            steps {
+                sh 'ansible-playbook ansibleplaybook1.yaml' // ✅ Must be inside `steps {}`
+            }
         }
+
     }
 }
