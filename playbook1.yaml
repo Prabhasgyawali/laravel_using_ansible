@@ -6,12 +6,25 @@
     ignore_errors: true
 
   - name: to delete php container
-    command: docker rm php_app
+    command: docker rm laravel_app
     ignore_errors: true
 
   - name: to delete php image
-    command: docker rmi php_app
+    command: docker rmi laravel_app
     ignore_errors: true
+
+  - name: to stop existing image
+    command: docker stop nginx
+    ignore_errors: true
+
+  - name: to delete php container
+    command: docker rm nginx
+    ignore_errors: true
+
+  - name: to delete php image
+    command: docker rmi nginx
+    ignore_errors: true
+
 
   - name: to build image of php
     command: docker-compose up --build -d
