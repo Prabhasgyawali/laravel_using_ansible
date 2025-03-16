@@ -50,5 +50,7 @@ RUN php artisan key:generate
 
 COPY default.conf /etc/nginx/conf.d/default.conf
 
+EXPOSE 80
+
 # Start PHP-FPM server
 CMD ["php-fpm"]
