@@ -25,6 +25,8 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php -r "unlink('composer-setup.php');"
 
 COPY . /var/www/html/Todo/
+RUN git config --global --add safe.directory /var/www/html/Todo
+
 # Install Composer
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
