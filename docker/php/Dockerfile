@@ -65,7 +65,7 @@ COPY .env.example .env
 RUN chmod 777 .env
 
 # Expose port for PHP-FPM
-EXPOSE 9000
+EXPOSE 9005
 
 # Start PHP-FPM server
 CMD ["php-fpm"]
