@@ -16,7 +16,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libzip-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install pdo pdo_mysql mbstring zip exif pcntl gd bcmath \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+    && apt-get clean && rm -rf /var/lib/apt/lists/* \
+    sudo apt install nodejs npm \
+    npm install
+
 
 
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
