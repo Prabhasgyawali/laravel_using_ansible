@@ -29,6 +29,8 @@ COPY . /var/www/html/Todo/
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 RUN chmod +x /usr/bin/composer
+COPY .env.example .env
+RUN chmod 777 .env
 
 
 
