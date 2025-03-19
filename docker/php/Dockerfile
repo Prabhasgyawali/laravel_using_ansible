@@ -18,12 +18,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && docker-php-ext-install pdo pdo_mysql mbstring zip exif pcntl gd bcmath \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-
-
-COPY . /var/www/html/Todo/
-COPY .env.example .env
-RUN chmod 777 .env
-
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php -r "if (hash_file('sha384', 'composer-setup.php') === 'dac665fdc30fdd8ec78b38b9800061b4150413ff2e3b6f88543c636f7cd84f6db9189d43a81e5503cda447da73c7e5b6') { echo 'Installer verified'.PHP_EOL; } else { echo 'Installer corrupt'.PHP_EOL; unlink('composer-setup.php'); exit(1); }" \
     && php composer-setup.php \
@@ -56,6 +50,9 @@ RUN sed 's_@php artisan package:discover_/bin/true_;' -i composer.json \
 
 
 RUN php artisan key:generate
+COPY . /var/www/html/Todo/
+COPY .env.example .env
+RUN chmod 777 .env
 
 # Expose port for PHP-FPM
 EXPOSE 9000
@@ -123,3 +120,8 @@ CMD ["php-fpm"]
 # ENTRYPOINT ["/usr/local/bin/php-entrypoint"]
 
 # CMD ["php-fpm"]
+
+
+
+
+
